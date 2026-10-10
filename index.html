@@ -21,9 +21,7 @@
 
 * { box-sizing: border-box; }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
+html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -332,6 +330,11 @@ button:hover { background: #087f52; }
     <div class="date" id="displayDate"></div>
 
     <div class="detail">
+      <strong>Registration ID:</strong>
+      <span id="registrationId"></span>
+    </div>
+
+    <div class="detail">
       <strong>Customer name:</strong>
       <span id="displayCustomerName"></span>
     </div>
@@ -344,7 +347,7 @@ button:hover { background: #087f52; }
     <hr class="divider">
 
     <div class="notice">
-      <strong>Your seat has been reserved.</strong><br>
+      <strong>Your seat has been reserved for the Webinar.</strong><br>
       Registration fees are non-refundable and cannot be reversed once payment has been successfully completed, subject to the applicable terms.
     </div>
 
@@ -393,6 +396,9 @@ form.addEventListener('submit', function(event) {
   document.getElementById('displayName').textContent = name;
   document.getElementById('displayCustomerName').textContent = name;
   document.getElementById('displayEmail').textContent = email;
+
+  document.getElementById('registrationId').textContent =
+    'REG-' + Date.now().toString().slice(-8);
 
   const now = new Date();
 
