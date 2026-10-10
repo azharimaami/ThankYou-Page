@@ -39,60 +39,159 @@ h1, h2, .brand-row, button, label {
   font-family: 'Poppins', 'Inter', sans-serif;
 }
 
-/* Centered registration screen */
-.registration-screen {
-  position: fixed;
-  inset: 0;
-  width: 100%;
+.page {
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 16px;
-  overflow-y: auto;
+  background: var(--green);
+  overflow: hidden;
+}
+
+.hero {
+  width: 100%;
+  min-height: clamp(300px, 48svh, 500px);
+  padding: clamp(24px, 5svh, 44px) 16px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.countdown {
+  font-size: clamp(15px, 4vw, 25px);
+  color: #d8f5e8;
+  margin: 8px 0 14px;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: clamp(27px, 6vw, 46px);
+  line-height: 1.18;
+  margin: 0;
+  letter-spacing: -.8px;
+  font-weight: 700;
+}
+
+.check-ring {
+  width: clamp(138px, 39vw, 190px);
+  height: clamp(138px, 39vw, 190px);
+  flex-shrink: 0;
+  border: clamp(10px, 3vw, 15px) solid var(--lime);
+  background: #19d981;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: clamp(38px, 8vh, 64px);
+  box-shadow: inset 0 0 0 3px rgba(0,0,0,.08);
+}
+
+.check {
+  color: #d6ff77;
+  font-size: clamp(76px, 22vw, 105px);
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(-4px);
+}
+
+.card {
+  width: min(100%, 560px);
+  margin: -2px auto 0;
+  padding: clamp(22px, 5vw, 30px) clamp(14px, 4vw, 20px) 22px;
+  background: var(--panel);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,.04);
+}
+
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(19px, 5vw, 29px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+#displayName {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.amount {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.date {
+  color: var(--muted);
+  font-size: clamp(15px, 4vw, 19px);
+  margin: 26px 0 18px;
+}
+
+.detail {
+  font-size: clamp(14px, 3.8vw, 17px);
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.detail strong {
+  font-weight: 700;
+}
+
+.divider {
+  border: 0;
+  border-top: 2px dashed #d9d8e4;
+  margin: 26px 0 20px;
+}
+
+.notice {
+  color: #5f6472;
+  font-size: clamp(13px, 3.6vw, 15px);
+  line-height: 1.55;
+  text-align: center;
 }
 
 .form-wrap {
-  width: 100%;
-  max-width: 440px;
-  margin: auto;
+  width: calc(100% - 28px);
+  max-width: 520px;
+  margin: clamp(14px, 4vh, 28px) auto;
   background: #fff;
   border-radius: 18px;
-  padding: 24px;
+  padding: clamp(18px, 5vw, 28px);
   box-shadow: 0 8px 28px rgba(0,0,0,.08);
 }
 
 .form-wrap h2 {
   margin: 0 0 8px;
   font-size: 24px;
-  line-height: 1.35;
 }
 
 .form-wrap p {
   color: #606775;
-  margin: 0 0 14px;
+  margin: 0 0 20px;
   line-height: 1.5;
 }
 
 label {
   display: block;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 14px 0 7px;
 }
 
 input {
-  display: block;
   width: 100%;
   min-height: 48px;
   padding: 13px 14px;
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  font-family: 'Inter', Arial, sans-serif;
+  font: inherit;
   font-size: 16px;
   outline: none;
-  background: #fff;
 }
 
 input:focus {
@@ -124,144 +223,74 @@ button:hover {
   margin: 12px 0 0 !important;
 }
 
-/* Confirmation screen */
-.page {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--green);
-  overflow: hidden;
-}
-
-.hero {
-  width: 100%;
-  min-height: clamp(250px, 42svh, 450px);
-  padding: clamp(18px, 4svh, 34px) 16px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-
-.countdown {
-  font-size: clamp(15px, 4vw, 25px);
-  color: #d8f5e8;
-  margin: 8px 0 12px;
-  line-height: 1.4;
-}
-
-h1 {
-  font-size: clamp(27px, 6vw, 46px);
-  line-height: 1.18;
-  margin: 0;
-  letter-spacing: -.8px;
-  font-weight: 700;
-}
-
-.check-ring {
-  width: clamp(128px, 36vw, 178px);
-  height: clamp(128px, 36vw, 178px);
-  flex-shrink: 0;
-  border: clamp(10px, 3vw, 15px) solid var(--lime);
-  background: #19d981;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  margin-top: clamp(26px, 5vh, 44px);
-  box-shadow: inset 0 0 0 3px rgba(0,0,0,.08);
-}
-
-.check {
-  color: #d6ff77;
-  font-size: clamp(76px, 22vw, 105px);
-  font-weight: 700;
-  line-height: 1;
-  transform: translateY(-4px);
-}
-
-.card {
-  width: min(100%, 560px);
-  margin: -2px auto 0;
-  padding: clamp(18px, 4vw, 24px) clamp(14px, 4vw, 20px) 18px;
-  background: var(--panel);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -2px 10px rgba(0,0,0,.04);
-}
-
-.brand-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: clamp(19px, 5vw, 29px);
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-#displayName {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.amount {
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.date {
-  color: var(--muted);
-  font-size: clamp(15px, 4vw, 19px);
-  margin: 12px 0;
-}
-
-.detail {
-  font-size: clamp(14px, 3.8vw, 17px);
-  line-height: 1.65;
-  overflow-wrap: anywhere;
-}
-
-.detail strong {
-  font-weight: 700;
-}
-
-.divider {
-  border: 0;
-  border-top: 2px dashed #d9d8e4;
-  margin: 18px 0 14px;
-}
-
-.notice {
-  color: #5f6472;
-  font-size: clamp(13px, 3.6vw, 15px);
-  line-height: 1.55;
-  text-align: center;
-}
-
+/* Footer */
 .footer {
-  color: #e3fff2;
-  font-size: 16px;
-  padding: 16px;
+  width: min(100%, 560px);
+  margin: 0 auto;
+  padding: 12px 20px 30px;
   text-align: center;
+  color: #e4fff2;
+}
+
+.footer-mark {
+  width: 42px;
+  height: 3px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: var(--lime);
+}
+
+.footer-title {
+  display: block;
+  color: #fff;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(16px, 4.4vw, 19px);
+  font-weight: 600;
+  letter-spacing: -.2px;
+}
+
+.footer-copy {
+  max-width: 310px;
+  margin: 7px auto 0;
+  color: rgba(239,255,247,.84);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 17px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  color: #f1fff7;
+  font-size: 11px;
+  letter-spacing: .15px;
+}
+
+.footer-note-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(167,245,29,.18);
+  color: var(--lime);
+  font-size: 11px;
+  font-weight: 800;
 }
 
 [hidden] {
   display: none !important;
 }
 
-/* Small mobile devices */
 @media (max-width: 380px) {
-  .form-wrap {
-    padding: 20px;
-    border-radius: 16px;
-  }
-
   .hero {
-    min-height: 250px;
-    padding: 18px 12px 16px;
+    min-height: 290px;
+    padding: 24px 12px 22px;
   }
 
   .countdown {
@@ -275,7 +304,7 @@ h1 {
   }
 
   .check-ring {
-    margin-top: 24px;
+    margin-top: 34px;
   }
 
   .brand-row {
@@ -286,15 +315,15 @@ h1 {
   .card {
     border-radius: 20px 20px 0 0;
   }
+
+  .date {
+    margin: 22px 0 16px;
+  }
 }
 
 @media (max-width: 340px) {
-  .form-wrap {
-    padding: 16px;
-  }
-
   .hero {
-    min-height: 235px;
+    min-height: 270px;
   }
 
   h1 {
@@ -304,7 +333,7 @@ h1 {
   .check-ring {
     width: 126px;
     height: 126px;
-    margin-top: 20px;
+    margin-top: 28px;
   }
 
   .check {
@@ -319,21 +348,22 @@ h1 {
 
 @media (min-width: 650px) {
   .hero {
-    min-height: 450px;
+    min-height: 510px;
   }
 
   .check-ring {
-    width: 190px;
-    height: 190px;
-    margin-top: 44px;
+    width: 210px;
+    height: 210px;
+    margin-top: 68px;
   }
 
   .check {
-    font-size: 105px;
+    font-size: 116px;
   }
 
   .card {
     border-radius: 24px;
+    margin-bottom: 0;
   }
 }
 </style>
@@ -341,62 +371,47 @@ h1 {
 
 <body>
 
-<!-- Registration form centered on screen -->
-<div class="registration-screen" id="registrationScreen">
-  <section id="registration" class="form-wrap">
-    <h2>Complete your registration</h2>
+<section id="registration" class="form-wrap">
+  <h2>Complete your registration</h2>
+  <p>Enter your details to reserve your seat and receive your registration summary.</p>
 
-    <p>
-      Enter your details to register and receive your confirmation.
+  <form id="registrationForm">
+    <label for="customerName">Full name</label>
+    <input
+      id="customerName"
+      name="customerName"
+      autocomplete="name"
+      required
+      minlength="2"
+      maxlength="100"
+      pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
+      title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
+      placeholder="Enter your full name"
+    >
+
+    <label for="customerEmail">Email address</label>
+    <input
+      id="customerEmail"
+      name="customerEmail"
+      type="email"
+      autocomplete="email"
+      required
+      maxlength="160"
+      placeholder="you@example.com"
+    >
+
+    <button type="submit">Continue</button>
+
+    <p class="fineprint">
+      Please enter accurate contact details so your registration information is correct.
     </p>
+  </form>
+</section>
 
-    <form id="registrationForm">
-      <label for="customerName">Full name</label>
-
-      <input
-        id="customerName"
-        name="customerName"
-        type="text"
-        autocomplete="name"
-        required
-        minlength="2"
-        maxlength="100"
-        pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
-        title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
-        placeholder="Enter your full name"
-      >
-
-      <label for="customerEmail">Email address</label>
-
-      <input
-        id="customerEmail"
-        name="customerEmail"
-        type="email"
-        autocomplete="email"
-        required
-        maxlength="160"
-        title="Enter a valid email address, such as name@example.com."
-        placeholder="you@example.com"
-      >
-
-      <button type="submit">Continue</button>
-
-      <p class="fineprint">
-        Please enter accurate contact details.
-      </p>
-    </form>
-  </section>
-</div>
-
-<!-- Registration confirmation -->
 <main id="confirmation" class="page" hidden>
   <section class="hero">
-    <div class="countdown">
-      Your registration is confirmed
-    </div>
-
-    <h1>Registration Successful</h1>
-
+    <div class="countdown">Your registration details</div>
+    <h1>Registration Summary</h1>
     <div class="check-ring" aria-hidden="true">
       <div class="check">✓</div>
     </div>
@@ -428,53 +443,43 @@ h1 {
     <hr class="divider">
 
     <div class="notice">
-      <strong>Your seat has been reserved.</strong><br>
-      Registration fees are non-refundable and cannot be reversed
-      once payment has been successfully completed, subject to
-      the applicable terms.
+      <strong>Your registration details are ready.</strong><br>
+      This page displays a registration summary. Payment status must be verified separately.
     </div>
 
-    <button type="button" onclick="window.location.reload()">
-      Continue
-    </button>
+    <button type="button" onclick="window.location.reload()">Continue</button>
   </section>
 
-  <div class="footer">Thank You for Your Registration</div>
+  <footer class="footer">
+    <div class="footer-mark" aria-hidden="true"></div>
+
+    <strong class="footer-title">We Appreciate Your Trust</strong>
+
+    <p class="footer-copy">
+      Thank you for registering. Keep these details handy for your records.
+    </p>
+
+    <div class="footer-note">
+      <span class="footer-note-icon" aria-hidden="true">✓</span>
+      Your personal details are handled with care
+    </div>
+  </footer>
 </main>
 
 <script>
 const form = document.getElementById('registrationForm');
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
   event.preventDefault();
 
-  const nameInput = document.getElementById('customerName');
-  const emailInput = document.getElementById('customerEmail');
-
-  const name = nameInput.value.trim().replace(/\s+/g, ' ');
-  const email = emailInput.value.trim();
-
-  const namePattern =
-    /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]{1,99}$/;
-
-  const emailPattern =
-    /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
-
-  if (!namePattern.test(name)) {
-    nameInput.setCustomValidity(
-      'Please enter a valid name using at least 2 letters.'
-    );
-    nameInput.reportValidity();
-    nameInput.setCustomValidity('');
+  if (!form.reportValidity()) {
     return;
   }
 
-  if (!emailPattern.test(email)) {
-    emailInput.setCustomValidity(
-      'Please enter a valid email address.'
-    );
-    emailInput.reportValidity();
-    emailInput.setCustomValidity('');
+  const name = document.getElementById('customerName').value.trim();
+  const email = document.getElementById('customerEmail').value.trim();
+
+  if (name.length < 2 || !email) {
     return;
   }
 
@@ -497,7 +502,7 @@ form.addEventListener('submit', function(event) {
       hour12: true
     });
 
-  document.getElementById('registrationScreen').hidden = true;
+  document.getElementById('registration').hidden = true;
   document.getElementById('confirmation').hidden = false;
 
   window.scrollTo({
