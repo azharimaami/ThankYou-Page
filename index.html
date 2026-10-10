@@ -16,7 +16,7 @@
   --lime: #a7f51d;
   --ink: #111827;
   --muted: #6b7280;
-  --panel: #f0effb;
+  --panel: #f3f4f6;
 }
 
 * {
@@ -39,6 +39,7 @@ h1, h2, .brand-row, button, label {
   font-family: 'Poppins', 'Inter', sans-serif;
 }
 
+/* Registration confirmation page */
 .page {
   min-height: 100vh;
   min-height: 100svh;
@@ -96,13 +97,15 @@ h1 {
   transform: translateY(-4px);
 }
 
+/* Greyish card with rounded bottom corners */
 .card {
-  width: min(100%, 560px);
+  width: calc(100% - 28px);
+  max-width: 560px;
   margin: -2px auto 0;
-  padding: clamp(22px, 5vw, 30px) clamp(14px, 4vw, 20px) 22px;
-  background: var(--panel);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -2px 10px rgba(0,0,0,.04);
+  padding: clamp(22px, 5vw, 30px) clamp(16px, 4vw, 24px) 26px;
+  background: #f3f4f6;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.07);
 }
 
 .brand-row {
@@ -126,15 +129,17 @@ h1 {
   white-space: nowrap;
 }
 
+/* Reduced space between name and date/time */
 .date {
   color: var(--muted);
-  font-size: clamp(15px, 4vw, 19px);
-  margin: 26px 0 18px;
+  font-size: clamp(14px, 3.8vw, 17px);
+  margin: 8px 0 20px;
+  line-height: 1.5;
 }
 
 .detail {
-  font-size: clamp(14px, 3.8vw, 17px);
-  line-height: 1.65;
+  font-size: clamp(14px, 3.8vw, 16px);
+  line-height: 1.75;
   overflow-wrap: anywhere;
 }
 
@@ -144,15 +149,19 @@ h1 {
 
 .divider {
   border: 0;
-  border-top: 2px dashed #d9d8e4;
-  margin: 26px 0 20px;
+  border-top: 2px dashed #d1d5db;
+  margin: 24px 0 18px;
 }
 
 .notice {
   color: #5f6472;
   font-size: clamp(13px, 3.6vw, 15px);
-  line-height: 1.55;
+  line-height: 1.6;
   text-align: center;
+}
+
+.notice strong {
+  color: #374151;
 }
 
 /* Premium registration form */
@@ -362,7 +371,7 @@ input:focus {
 .footer {
   width: min(100%, 560px);
   margin: 0 auto;
-  padding: 8px 20px 30px;
+  padding: 24px 20px 30px;
   text-align: center;
   color: #e4fff2;
 }
@@ -460,12 +469,9 @@ input:focus {
     gap: 8px;
   }
 
-  .card {
-    border-radius: 20px 20px 0 0;
-  }
-
   .date {
-    margin: 22px 0 16px;
+    margin-top: 6px;
+    margin-bottom: 17px;
   }
 }
 
@@ -520,11 +526,6 @@ input:focus {
   .check {
     font-size: 116px;
   }
-
-  .card {
-    border-radius: 24px;
-    margin-bottom: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -541,51 +542,53 @@ input:focus {
 <body>
 
 <!-- PREMIUM REGISTRATION FORM -->
-<section id="registration" class="form-wrap">
-  <div class="form-kicker">
-    <span class="form-kicker-mark" aria-hidden="true"></span>
-    Registration
-  </div>
+<section id="registration">
+  <div class="form-wrap">
+    <div class="form-kicker">
+      <span class="form-kicker-mark" aria-hidden="true"></span>
+      Registration
+    </div>
 
-  <h2>Let’s get you registered</h2>
+    <h2>Let’s get you registered</h2>
 
-  <p class="form-intro">
-    Enter your details below to continue and view your registration summary.
-  </p>
-
-  <form id="registrationForm">
-    <label for="customerName">Full name</label>
-    <input
-      id="customerName"
-      name="customerName"
-      autocomplete="name"
-      required
-      minlength="2"
-      maxlength="100"
-      pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
-      title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
-      placeholder="Enter your full name"
-    >
-
-    <label for="customerEmail">Email address</label>
-    <input
-      id="customerEmail"
-      name="customerEmail"
-      type="email"
-      autocomplete="email"
-      required
-      maxlength="160"
-      pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+"
-      title="Enter a valid email address, such as name@example.com."
-      placeholder="you@example.com"
-    >
-
-    <button type="submit">Continue</button>
-
-    <p class="fineprint">
-      Please make sure your name and email address are entered correctly.
+    <p class="form-intro">
+      Enter your details below to continue and view your registration summary.
     </p>
-  </form>
+
+    <form id="registrationForm">
+      <label for="customerName">Full name</label>
+      <input
+        id="customerName"
+        name="customerName"
+        autocomplete="name"
+        required
+        minlength="2"
+        maxlength="100"
+        pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
+        title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
+        placeholder="Enter your full name"
+      >
+
+      <label for="customerEmail">Email address</label>
+      <input
+        id="customerEmail"
+        name="customerEmail"
+        type="email"
+        autocomplete="email"
+        required
+        maxlength="160"
+        pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+"
+        title="Enter a valid email address, such as name@example.com."
+        placeholder="you@example.com"
+      >
+
+      <button type="submit">Continue</button>
+
+      <p class="fineprint">
+        Please make sure your name and email address are entered correctly.
+      </p>
+    </form>
+  </div>
 </section>
 
 <!-- REGISTRATION SUMMARY -->
