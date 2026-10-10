@@ -19,7 +19,9 @@
   --panel: #f0effb;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -37,30 +39,34 @@ h1, h2, .brand-row, button, label {
   font-family: 'Poppins', 'Inter', sans-serif;
 }
 
-/* Center the registration form vertically and horizontally */
+/* Centered registration screen */
 .registration-screen {
-  min-height: 100vh;
-  min-height: 100svh;
+  position: fixed;
+  inset: 0;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 16px;
+  overflow-y: auto;
 }
 
 .form-wrap {
-  width: calc(100% - 28px);
-  max-width: 520px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
   background: #fff;
   border-radius: 18px;
-  padding: clamp(18px, 5vw, 28px);
+  padding: 24px;
   box-shadow: 0 8px 28px rgba(0,0,0,.08);
 }
 
 .form-wrap h2 {
   margin: 0 0 8px;
   font-size: 24px;
+  line-height: 1.35;
 }
 
 .form-wrap p {
@@ -72,11 +78,12 @@ h1, h2, .brand-row, button, label {
 label {
   display: block;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 14px 0 7px;
 }
 
 input {
+  display: block;
   width: 100%;
   min-height: 48px;
   padding: 13px 14px;
@@ -85,6 +92,7 @@ input {
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   outline: none;
+  background: #fff;
 }
 
 input:focus {
@@ -116,9 +124,10 @@ button:hover {
   margin: 12px 0 0 !important;
 }
 
+/* Confirmation screen */
 .page {
   min-height: 100vh;
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -235,7 +244,7 @@ h1 {
 .footer {
   color: #e3fff2;
   font-size: 16px;
-  padding: 16px 16px 20px;
+  padding: 16px;
   text-align: center;
 }
 
@@ -243,7 +252,13 @@ h1 {
   display: none !important;
 }
 
+/* Small mobile devices */
 @media (max-width: 380px) {
+  .form-wrap {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
   .hero {
     min-height: 250px;
     padding: 18px 12px 16px;
@@ -274,6 +289,10 @@ h1 {
 }
 
 @media (max-width: 340px) {
+  .form-wrap {
+    padding: 16px;
+  }
+
   .hero {
     min-height: 235px;
   }
@@ -322,14 +341,13 @@ h1 {
 
 <body>
 
-<!-- Registration form: centered on screen -->
+<!-- Registration form centered on screen -->
 <div class="registration-screen" id="registrationScreen">
   <section id="registration" class="form-wrap">
     <h2>Complete your registration</h2>
 
     <p>
-      Enter your details to reserve your seat and create
-      a registration confirmation.
+      Enter your details to register and receive your confirmation.
     </p>
 
     <form id="registrationForm">
@@ -338,6 +356,7 @@ h1 {
       <input
         id="customerName"
         name="customerName"
+        type="text"
         autocomplete="name"
         required
         minlength="2"
@@ -363,17 +382,18 @@ h1 {
       <button type="submit">Continue</button>
 
       <p class="fineprint">
-        Please enter accurate contact details so your registration
-        information is correct.
+        Please enter accurate contact details.
       </p>
     </form>
   </section>
 </div>
 
-<!-- Confirmation page -->
+<!-- Registration confirmation -->
 <main id="confirmation" class="page" hidden>
   <section class="hero">
-    <div class="countdown">Your registration is confirmed</div>
+    <div class="countdown">
+      Your registration is confirmed
+    </div>
 
     <h1>Registration Successful</h1>
 
