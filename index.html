@@ -38,9 +38,13 @@ h1, h2, .brand-row, button, label {
   font-family: 'Poppins', 'Inter', sans-serif;
 }
 
-/* =========================
-   REGISTRATION PAGE
-========================= */
+[hidden] {
+  display: none !important;
+}
+
+/* ==================================
+   FIRST PAGE: REGISTRATION
+================================== */
 
 #registration {
   position: fixed;
@@ -50,29 +54,31 @@ h1, h2, .brand-row, button, label {
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
-  padding: 24px;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: stretch;
   overflow-y: auto;
   background: #f3f4f6;
 }
 
-/* Left registration card */
+/* Left-side form card */
 
 .form-wrap {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 450px;
-  margin: auto;
-  padding: clamp(24px, 5vw, 36px);
+  flex: 0 0 480px;
+  width: 480px;
+  max-width: 40%;
+  min-height: 100%;
+  margin: 0;
+  padding: clamp(28px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #fff;
   border: 1px solid rgba(17,24,39,.06);
-  border-radius: 24px;
-  box-shadow:
-    0 24px 70px rgba(17,54,39,.10),
-    0 3px 12px rgba(17,24,39,.04);
+  border-radius: 0 28px 28px 0;
+  box-shadow: 0 12px 45px rgba(17,54,39,.08);
   overflow: hidden;
 }
 
@@ -92,10 +98,10 @@ h1, h2, .brand-row, button, label {
 }
 
 .form-wrap h2 {
-  margin: 0 0 9px;
+  margin: 0 0 10px;
   color: #101c17;
-  font-size: clamp(25px, 5vw, 30px);
-  line-height: 1.22;
+  font-size: clamp(25px, 2.5vw, 32px);
+  line-height: 1.25;
   letter-spacing: -.8px;
   font-weight: 700;
 }
@@ -124,7 +130,7 @@ input:not([type="hidden"]) {
   border-radius: 12px;
   background: #fbfcfb;
   color: #17221c;
-  font: inherit;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
   outline: none;
   transition:
@@ -230,45 +236,173 @@ input:focus {
   margin-top: 1px;
 }
 
-/* =========================
+/* ==================================
    RIGHT-SIDE DECORATIVE DESIGN
-   Desktop only — no text
-========================= */
+================================== */
 
 .right-design {
-  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: min(480px, 40%);
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(167,245,29,.20),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 20% 85%,
+      rgba(255,255,255,.10),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #056b45 0%,
+      #079b62 52%,
+      #08794f 100%
+    );
 }
 
-@media (min-width: 900px) {
-  #registration {
-    align-items: flex-start;
-    padding: 0;
-    background: #f3f4f6;
-  }
+/* Circular outline design */
 
-  #registration > .form-wrap {
-    flex: 0 0 min(480px, 34vw);
-    width: min(480px, 34vw);
-    max-width: 480px;
-    min-height: 100%;
-    margin: 0;
-    border-radius: 0 28px 28px 0;
+.right-design::before {
+  content: "";
+  position: absolute;
+  width: min(40vw, 520px);
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 34px rgba(255,255,255,.035),
+    0 0 0 76px rgba(255,255,255,.03),
+    0 0 0 120px rgba(255,255,255,.02);
+}
+
+/* Green/lime glow */
+
+.right-design::after {
+  content: "";
+  position: absolute;
+  width: min(32vw, 420px);
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(167,245,29,.25),
+    rgba(167,245,29,0) 68%
+  );
+  transform: translate(-35%, -25%);
+}
+
+/* Center checkmark ornament */
+
+.design-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(150px, 19vw, 230px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.3);
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at 35% 28%,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.025) 60%
+  );
+  box-shadow:
+    0 24px 70px rgba(0,40,25,.15),
+    inset 0 0 35px rgba(255,255,255,.05);
+}
+
+.design-orbit::before,
+.design-orbit::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255,255,255,.19);
+  border-radius: 50%;
+}
+
+.design-orbit::before {
+  inset: 15px;
+}
+
+.design-orbit::after {
+  inset: 32px;
+  border-color: rgba(167,245,29,.45);
+}
+
+.design-check {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  transform: rotate(-8deg);
+  background: linear-gradient(145deg, #b6fb4c, #8be91b);
+  color: #075a3b;
+  font-family: 'Inter', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  box-shadow: 0 15px 35px rgba(0,35,20,.18);
+}
+
+/* ==================================
+   MOBILE LAYOUT
+   White card on top, green design below
+================================== */
+
+@media (max-width: 899px) {
+  #registration {
+    position: relative;
+    inset: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: clamp(28px, 3vw, 48px);
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: hidden;
+    background: #079b62;
+  }
+
+  .form-wrap {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    min-height: auto;
+    margin: 0;
+    padding: 30px 24px 28px;
+    border-radius: 0 0 24px 24px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .form-wrap h2 {
+    font-size: clamp(25px, 6vw, 30px);
   }
 
   .right-design {
-    position: absolute;
-    display: block;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: min(480px, 34vw);
+    position: relative;
+    inset: auto;
+    flex: 1 0 200px;
+    width: 100%;
+    min-height: 200px;
     overflow: hidden;
-    pointer-events: none;
-
     background:
       radial-gradient(
         circle at 80% 20%,
@@ -288,107 +422,47 @@ input:focus {
       );
   }
 
-  /* Large subtle circular outlines */
-
   .right-design::before {
-    content: "";
-    position: absolute;
-    width: min(40vw, 520px);
-    aspect-ratio: 1;
+    width: 240px;
+    height: 240px;
     top: 50%;
     left: 50%;
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
     box-shadow:
-      0 0 0 34px rgba(255,255,255,.035),
-      0 0 0 76px rgba(255,255,255,.03),
-      0 0 0 120px rgba(255,255,255,.02);
+      0 0 0 28px rgba(255,255,255,.035),
+      0 0 0 60px rgba(255,255,255,.025);
   }
-
-  /* Soft lime-green glow */
 
   .right-design::after {
-    content: "";
-    position: absolute;
-    width: min(32vw, 420px);
-    aspect-ratio: 1;
+    width: 220px;
+    height: 220px;
     top: 50%;
     left: 50%;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle,
-      rgba(167,245,29,.25),
-      rgba(167,245,29,0) 68%
-    );
-    transform: translate(-35%, -25%);
   }
-
-  /* Decorative checkmark only */
 
   .design-orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: clamp(150px, 19vw, 230px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,.3);
-    display: grid;
-    place-items: center;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-      circle at 35% 28%,
-      rgba(255,255,255,.18),
-      rgba(255,255,255,.025) 60%
-    );
-    box-shadow:
-      0 24px 70px rgba(0,40,25,.15),
-      inset 0 0 35px rgba(255,255,255,.05);
-  }
-
-  .design-orbit::before,
-  .design-orbit::after {
-    content: "";
-    position: absolute;
-    border: 1px solid rgba(255,255,255,.19);
-    border-radius: 50%;
+    width: 130px;
+    height: 130px;
   }
 
   .design-orbit::before {
-    inset: 15px;
+    inset: 12px;
   }
 
   .design-orbit::after {
-    inset: 32px;
-    border-color: rgba(167,245,29,.45);
+    inset: 25px;
   }
 
   .design-check {
-    width: 76px;
-    height: 76px;
-    display: grid;
-    place-items: center;
-    border-radius: 24px;
-    transform: rotate(-8deg);
-    background: linear-gradient(145deg, #b6fb4c, #8be91b);
-    color: #075a3b;
-    font-family: 'Inter', sans-serif;
-    font-size: 42px;
-    font-weight: 800;
-    box-shadow: 0 15px 35px rgba(0,35,20,.18);
+    width: 54px;
+    height: 54px;
+    border-radius: 17px;
+    font-size: 32px;
   }
 }
 
-@media (max-width: 899px) {
-  .right-design {
-    display: none !important;
-  }
-}
-
-/* =========================
-   CONFIRMATION PAGE
-========================= */
+/* ==================================
+   SECOND PAGE: CONFIRMATION
+================================== */
 
 .page {
   min-height: 100vh;
@@ -480,7 +554,7 @@ h1 {
   white-space: nowrap;
 }
 
-/* Smaller gap between name and date/time */
+/* Reduced name/date gap */
 
 .date {
   color: var(--muted);
@@ -577,26 +651,9 @@ h1 {
   font-weight: 800;
 }
 
-[hidden] {
-  display: none !important;
-}
-
-/* =========================
-   RESPONSIVE STYLES
-========================= */
-
 @media (max-width: 380px) {
-  #registration {
-    padding: 16px;
-  }
-
   .form-wrap {
-    border-radius: 20px;
     padding: 25px 20px;
-  }
-
-  .form-wrap h2 {
-    font-size: 25px;
   }
 
   .hero {
@@ -633,10 +690,6 @@ h1 {
 }
 
 @media (max-width: 340px) {
-  #registration {
-    padding: 12px;
-  }
-
   .form-wrap {
     padding: 23px 17px;
   }
@@ -662,6 +715,16 @@ h1 {
   .card {
     padding-left: 12px;
     padding-right: 12px;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 899px) {
+  .form-wrap {
+    padding: 34px;
+  }
+
+  .right-design {
+    min-height: 250px;
   }
 }
 
@@ -698,8 +761,9 @@ h1 {
 
 <body>
 
-<!-- FIRST PAGE: REGISTRATION FORM -->
+<!-- FIRST PAGE -->
 <section id="registration">
+
   <div class="form-wrap">
     <h2>Let’s get you registered</h2>
 
@@ -742,16 +806,18 @@ h1 {
     </form>
   </div>
 
-  <!-- Right side: design only, no text -->
+  <!-- Right side on desktop; below form on mobile -->
   <aside class="right-design" aria-hidden="true">
     <div class="design-orbit">
       <div class="design-check">✓</div>
     </div>
   </aside>
+
 </section>
 
-<!-- SECOND PAGE: REGISTRATION SUMMARY -->
+<!-- SECOND PAGE -->
 <main id="confirmation" class="page" hidden>
+
   <section class="hero">
     <div class="countdown">Your registration is confirmed</div>
     <h1>Registration Successful</h1>
@@ -762,8 +828,9 @@ h1 {
   </section>
 
   <section class="card">
+
     <div class="brand-row">
-      <span id="displayName">Customer</span>
+      <span id="displayName"></span>
       <span class="amount">₹99/-</span>
     </div>
 
@@ -775,7 +842,7 @@ h1 {
     </div>
 
     <div class="detail">
-      <strong>Name:</strong>
+      <strong>Registered To:</strong>
       <span id="displayCustomerName"></span>
     </div>
 
@@ -790,6 +857,7 @@ h1 {
       <strong>Your seat has been reserved.</strong><br>
       Registration fees are non-refundable and cannot be reversed once payment has been successfully completed, subject to the applicable terms.
     </div>
+
   </section>
 
   <footer class="footer">
@@ -806,6 +874,7 @@ h1 {
       Your personal details are handled with care
     </div>
   </footer>
+
 </main>
 
 <script>
