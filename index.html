@@ -155,79 +155,214 @@ h1 {
   text-align: center;
 }
 
+/* Premium registration form */
+#registration {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(7,155,98,.10), transparent 34%),
+    radial-gradient(circle at 90% 92%, rgba(167,245,29,.12), transparent 30%),
+    #f5f7f6;
+}
+
 .form-wrap {
-  width: calc(100% - 28px);
-  max-width: 520px;
-  margin: clamp(14px, 4vh, 28px) auto;
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
   background: #fff;
-  border-radius: 18px;
-  padding: clamp(18px, 5vw, 28px);
-  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+  border: 1px solid rgba(17,24,39,.06);
+  border-radius: 24px;
+  padding: clamp(24px, 5vw, 36px);
+  box-shadow:
+    0 24px 70px rgba(17,54,39,.10),
+    0 3px 12px rgba(17,24,39,.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #05784b, #079b62, #a7f51d);
+}
+
+.form-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 16px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #eaf8f1;
+  color: #08784d;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-kicker-mark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #079b62;
+  box-shadow: 0 0 0 4px rgba(7,155,98,.10);
 }
 
 .form-wrap h2 {
-  margin: 0 0 8px;
-  font-size: 24px;
+  margin: 0 0 9px;
+  color: #101c17;
+  font-size: clamp(25px, 5vw, 30px);
+  line-height: 1.22;
+  letter-spacing: -.8px;
+  font-weight: 700;
 }
 
-.form-wrap p {
-  color: #606775;
-  margin: 0 0 20px;
-  line-height: 1.5;
+.form-intro {
+  color: #6b7280;
+  margin: 0 0 25px;
+  line-height: 1.65;
+  font-size: 14px;
 }
 
 label {
   display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 14px 0 7px;
+  color: #26332d;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 17px 0 8px;
 }
 
-input {
+input:not([type="hidden"]) {
+  display: block;
   width: 100%;
-  min-height: 48px;
-  padding: 13px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
+  min-height: 52px;
+  padding: 14px 15px;
+  border: 1px solid #dfe5e1;
+  border-radius: 12px;
+  background: #fbfcfb;
+  color: #17221c;
   font: inherit;
   font-size: 16px;
   outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+input::placeholder {
+  color: #a0a8a3;
+}
+
+input:hover {
+  border-color: #b9cfc2;
 }
 
 input:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(7,155,98,.12);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(7,155,98,.10);
 }
 
-button {
+/* Continue button */
+#registration button {
   width: 100%;
-  min-height: 48px;
+  min-height: 54px;
   border: 0;
-  border-radius: 10px;
-  padding: 13px 14px;
-  margin-top: 20px;
+  border-radius: 12px;
+  padding: 15px 18px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   color: #fff;
-  background: var(--green);
+  background: linear-gradient(135deg, #079b62, #06764b);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: .1px;
   cursor: pointer;
   touch-action: manipulation;
+  box-shadow:
+    0 8px 18px rgba(7,155,98,.18),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
 
-button:hover {
-  background: #087f52;
+#registration button::after {
+  content: '→';
+  color: #d7ff8c;
+  font-size: 19px;
+  line-height: 1;
+  transition: transform .18s ease;
+}
+
+#registration button:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+  box-shadow:
+    0 11px 22px rgba(7,155,98,.22),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+#registration button:hover::after {
+  transform: translateX(3px);
+}
+
+#registration button:active {
+  transform: translateY(0);
+}
+
+#registration button:focus-visible {
+  outline: 3px solid #a7f51d;
+  outline-offset: 3px;
 }
 
 .fineprint {
-  font-size: 12px !important;
-  margin: 12px 0 0 !important;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #7b847e !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+  margin: 15px 0 0 !important;
+}
+
+.fineprint::before {
+  content: '✓';
+  flex: 0 0 17px;
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #eaf8f1;
+  color: #078653;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 1px;
 }
 
 /* Footer */
 .footer {
   width: min(100%, 560px);
   margin: 0 auto;
-  padding: 12px 20px 30px;
+  padding: 8px 20px 30px;
   text-align: center;
   color: #e4fff2;
 }
@@ -243,7 +378,7 @@ button:hover {
 .footer-title {
   display: block;
   color: #fff;
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: clamp(16px, 4.4vw, 19px);
   font-weight: 600;
   letter-spacing: -.2px;
@@ -288,6 +423,19 @@ button:hover {
 }
 
 @media (max-width: 380px) {
+  #registration {
+    padding: 16px;
+  }
+
+  .form-wrap {
+    border-radius: 20px;
+    padding: 25px 20px;
+  }
+
+  .form-wrap h2 {
+    font-size: 25px;
+  }
+
   .hero {
     min-height: 290px;
     padding: 24px 12px 22px;
@@ -322,6 +470,14 @@ button:hover {
 }
 
 @media (max-width: 340px) {
+  #registration {
+    padding: 12px;
+  }
+
+  .form-wrap {
+    padding: 23px 17px;
+  }
+
   .hero {
     min-height: 270px;
   }
@@ -347,6 +503,10 @@ button:hover {
 }
 
 @media (min-width: 650px) {
+  .page {
+    min-height: 100vh;
+  }
+
   .hero {
     min-height: 510px;
   }
@@ -366,14 +526,32 @@ button:hover {
     margin-bottom: 0;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
 </style>
 </head>
 
 <body>
 
+<!-- PREMIUM REGISTRATION FORM -->
 <section id="registration" class="form-wrap">
-  <h2>Complete your registration</h2>
-  <p>Enter your details to reserve your seat and receive your registration summary.</p>
+  <div class="form-kicker">
+    <span class="form-kicker-mark" aria-hidden="true"></span>
+    Registration
+  </div>
+
+  <h2>Let’s get you registered</h2>
+
+  <p class="form-intro">
+    Enter your details below to continue and view your registration summary.
+  </p>
 
   <form id="registrationForm">
     <label for="customerName">Full name</label>
@@ -397,21 +575,25 @@ button:hover {
       autocomplete="email"
       required
       maxlength="160"
+      pattern="[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+"
+      title="Enter a valid email address, such as name@example.com."
       placeholder="you@example.com"
     >
 
     <button type="submit">Continue</button>
 
     <p class="fineprint">
-      Please enter accurate contact details so your registration information is correct.
+      Please make sure your name and email address are entered correctly.
     </p>
   </form>
 </section>
 
+<!-- REGISTRATION SUMMARY -->
 <main id="confirmation" class="page" hidden>
   <section class="hero">
-    <div class="countdown">Your registration details</div>
-    <h1>Registration Summary</h1>
+    <div class="countdown">Your registration is confirmed</div>
+    <h1>Registration Successful</h1>
+
     <div class="check-ring" aria-hidden="true">
       <div class="check">✓</div>
     </div>
@@ -443,11 +625,9 @@ button:hover {
     <hr class="divider">
 
     <div class="notice">
-      <strong>Your registration details are ready.</strong><br>
-      This page displays a registration summary. Payment status must be verified separately.
+      <strong>Your seat has been reserved.</strong><br>
+      Registration fees are non-refundable and cannot be reversed once payment has been successfully completed, subject to the applicable terms.
     </div>
-
-    <button type="button" onclick="window.location.reload()">Continue</button>
   </section>
 
   <footer class="footer">
