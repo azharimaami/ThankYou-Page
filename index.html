@@ -21,7 +21,9 @@
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
@@ -33,6 +35,85 @@ body {
 
 h1, h2, .brand-row, button, label {
   font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+/* Center the registration form vertically and horizontally */
+.registration-screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.form-wrap {
+  width: calc(100% - 28px);
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(18px, 5vw, 28px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+}
+
+.form-wrap h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.form-wrap p {
+  color: #606775;
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 14px 0 7px;
+}
+
+input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(7,155,98,.12);
+}
+
+button {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 14px;
+  margin-top: 20px;
+  color: #fff;
+  background: var(--green);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background: #087f52;
+}
+
+.fineprint {
+  font-size: 12px !important;
+  margin: 12px 0 0 !important;
 }
 
 .page {
@@ -134,7 +215,9 @@ h1 {
   overflow-wrap: anywhere;
 }
 
-.detail strong { font-weight: 700; }
+.detail strong {
+  font-weight: 700;
+}
 
 .divider {
   border: 0;
@@ -156,73 +239,9 @@ h1 {
   text-align: center;
 }
 
-.form-wrap {
-  width: calc(100% - 28px);
-  max-width: 520px;
-  margin: clamp(12px, 3vh, 20px) auto;
-  background: #fff;
-  border-radius: 18px;
-  padding: clamp(18px, 5vw, 28px);
-  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+[hidden] {
+  display: none !important;
 }
-
-.form-wrap h2 {
-  margin: 0 0 8px;
-  font-size: 24px;
-}
-
-.form-wrap p {
-  color: #606775;
-  margin: 0 0 14px;
-  line-height: 1.5;
-}
-
-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 14px 0 7px;
-}
-
-input {
-  width: 100%;
-  min-height: 48px;
-  padding: 13px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 16px;
-  outline: none;
-}
-
-input:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px rgba(7,155,98,.12);
-}
-
-button {
-  width: 100%;
-  min-height: 48px;
-  border: 0;
-  border-radius: 10px;
-  padding: 13px 14px;
-  margin-top: 20px;
-  color: #fff;
-  background: var(--green);
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  touch-action: manipulation;
-}
-
-button:hover { background: #087f52; }
-
-.fineprint {
-  font-size: 12px !important;
-  margin: 12px 0 0 !important;
-}
-
-[hidden] { display: none !important; }
 
 @media (max-width: 380px) {
   .hero {
@@ -230,17 +249,38 @@ button:hover { background: #087f52; }
     padding: 18px 12px 16px;
   }
 
-  .countdown { font-size: 15px; margin-bottom: 12px; }
-  h1 { font-size: 26px; letter-spacing: -.5px; }
-  .check-ring { margin-top: 24px; }
-  .brand-row { font-size: 19px; gap: 8px; }
-  .card { border-radius: 20px 20px 0 0; }
-  .date { margin: 12px 0; }
+  .countdown {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 26px;
+    letter-spacing: -.5px;
+  }
+
+  .check-ring {
+    margin-top: 24px;
+  }
+
+  .brand-row {
+    font-size: 19px;
+    gap: 8px;
+  }
+
+  .card {
+    border-radius: 20px 20px 0 0;
+  }
 }
 
 @media (max-width: 340px) {
-  .hero { min-height: 235px; }
-  h1 { font-size: 23px; }
+  .hero {
+    min-height: 235px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
 
   .check-ring {
     width: 126px;
@@ -248,7 +288,9 @@ button:hover { background: #087f52; }
     margin-top: 20px;
   }
 
-  .check { font-size: 70px; }
+  .check {
+    font-size: 70px;
+  }
 
   .card {
     padding-left: 12px;
@@ -257,7 +299,9 @@ button:hover { background: #087f52; }
 }
 
 @media (min-width: 650px) {
-  .hero { min-height: 450px; }
+  .hero {
+    min-height: 450px;
+  }
 
   .check-ring {
     width: 190px;
@@ -265,55 +309,72 @@ button:hover { background: #087f52; }
     margin-top: 44px;
   }
 
-  .check { font-size: 105px; }
-  .card { border-radius: 24px; }
+  .check {
+    font-size: 105px;
+  }
+
+  .card {
+    border-radius: 24px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<section id="registration" class="form-wrap">
-  <h2>Complete your registration</h2>
-  <p>Enter your details to reserve your seat and create a registration confirmation.</p>
+<!-- Registration form: centered on screen -->
+<div class="registration-screen" id="registrationScreen">
+  <section id="registration" class="form-wrap">
+    <h2>Complete your registration</h2>
 
-  <form id="registrationForm">
-    <label for="customerName">Full name</label>
-    <input
-      id="customerName"
-      name="customerName"
-      autocomplete="name"
-      required
-      minlength="2"
-      maxlength="100"
-      pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
-      title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
-      placeholder="Enter your full name"
-    >
-
-    <label for="customerEmail">Email address</label>
-    <input
-      id="customerEmail"
-      name="customerEmail"
-      type="email"
-      autocomplete="email"
-      required
-      maxlength="160"
-      title="Enter a valid email address, such as name@example.com."
-      placeholder="you@example.com"
-    >
-
-    <button type="submit">Continue</button>
-
-    <p class="fineprint">
-      Please enter accurate contact details so your registration information is correct.
+    <p>
+      Enter your details to reserve your seat and create
+      a registration confirmation.
     </p>
-  </form>
-</section>
 
+    <form id="registrationForm">
+      <label for="customerName">Full name</label>
+
+      <input
+        id="customerName"
+        name="customerName"
+        autocomplete="name"
+        required
+        minlength="2"
+        maxlength="100"
+        pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]*"
+        title="Enter a valid name using letters, spaces, apostrophes, dots or hyphens."
+        placeholder="Enter your full name"
+      >
+
+      <label for="customerEmail">Email address</label>
+
+      <input
+        id="customerEmail"
+        name="customerEmail"
+        type="email"
+        autocomplete="email"
+        required
+        maxlength="160"
+        title="Enter a valid email address, such as name@example.com."
+        placeholder="you@example.com"
+      >
+
+      <button type="submit">Continue</button>
+
+      <p class="fineprint">
+        Please enter accurate contact details so your registration
+        information is correct.
+      </p>
+    </form>
+  </section>
+</div>
+
+<!-- Confirmation page -->
 <main id="confirmation" class="page" hidden>
   <section class="hero">
     <div class="countdown">Your registration is confirmed</div>
+
     <h1>Registration Successful</h1>
 
     <div class="check-ring" aria-hidden="true">
@@ -347,11 +408,15 @@ button:hover { background: #087f52; }
     <hr class="divider">
 
     <div class="notice">
-      <strong>Your seat has been reserved for the Webinar.</strong><br>
-      Registration fees are non-refundable and cannot be reversed once payment has been successfully completed, subject to the applicable terms.
+      <strong>Your seat has been reserved.</strong><br>
+      Registration fees are non-refundable and cannot be reversed
+      once payment has been successfully completed, subject to
+      the applicable terms.
     </div>
 
-    <button type="button" onclick="window.location.reload()">Continue</button>
+    <button type="button" onclick="window.location.reload()">
+      Continue
+    </button>
   </section>
 
   <div class="footer">Thank You for Your Registration</div>
@@ -412,10 +477,13 @@ form.addEventListener('submit', function(event) {
       hour12: true
     });
 
-  document.getElementById('registration').hidden = true;
+  document.getElementById('registrationScreen').hidden = true;
   document.getElementById('confirmation').hidden = false;
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 </script>
 
